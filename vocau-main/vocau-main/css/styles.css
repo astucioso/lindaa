@@ -1,0 +1,488 @@
+  body {
+    margin: 0;
+    font-family: "Segoe UI", "Trebuchet MS", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #e9e3ec;
+    background: #0b0b0f;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .wallpaper-media {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.05) contrast(1.1) brightness(0.95);
+    transform: translateZ(0);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .wallpaper-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(8, 8, 12, 0.35), rgba(16, 16, 24, 0.2));
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .profile-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 20px;
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .card {
+    background: transparent;
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+    text-align: left;
+    padding: 30px;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: min(92vw, 400px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 4px;
+  }
+
+  .avatar img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    border: none;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.35);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .avatar img:hover {
+    box-shadow: 0 0 26px rgba(0, 0, 0, 0.6);
+    transform: rotate(2deg) scale(1.06);
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    color: #f2eef5;
+    text-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+  }
+  
+  @keyframes glow-text {
+    from {
+      color: #c9d1d9;
+      text-shadow: 0 0 10px #00000088;
+    }
+    to {
+      color: #ffffff;
+      text-shadow: 0 0 20px #00000096;
+    }
+  }
+  
+  .subnick {
+    font-size: 1rem;
+    color: #b5adbe;
+    margin: 0;
+    opacity: 0.85;
+  }
+  
+  .badges {
+    display: inline-flex;
+    gap: 6px;
+    margin-top: 6px;
+  }
+  
+  .badge {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+  
+  .badge:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.35));
+  }
+  
+  /* Novo estilo para o Ć­cone do Discord abaixo das badges */
+  .social-icon {
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.7));
+  }
+
+  .links {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 2px;
+  }
+
+  .link-button {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .link-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+  }
+
+  .link-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .osu-panel {
+    margin-top: 0;
+    padding: 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(10, 10, 16, 0.45);
+  }
+
+  .osu-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .osu-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+  }
+
+  .osu-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .osu-name {
+    font-size: 1rem;
+    color: #f2eef5;
+    text-align: left;
+  }
+
+  .osu-sub {
+    font-size: 0.85rem;
+    color: #b5adbe;
+    text-align: left;
+  }
+
+  .osu-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 12px;
+  }
+
+  .osu-stat {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: #e9e3ec;
+  }
+
+  .music-panel {
+    padding: 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(10, 10, 16, 0.55);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .music-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .music-cover {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
+  }
+
+  .music-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .music-title {
+    font-size: 0.98rem;
+    color: #f2eef5;
+  }
+
+  .music-artist {
+    font-size: 0.82rem;
+    color: #b5adbe;
+  }
+
+  .music-progress {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .music-time {
+    font-size: 0.75rem;
+    color: #9c97a3;
+  }
+
+  .music-seek {
+    width: 100%;
+    accent-color: #c9c2d1;
+  }
+
+  .music-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .control-button {
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f2eef5;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .control-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+  }
+
+  .control-button.is-primary {
+    background: rgba(255, 255, 255, 0.16);
+  }
+
+  .control-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  .control-button .icon-pause {
+    display: none;
+  }
+
+  .control-button.is-playing .icon-play {
+    display: none;
+  }
+
+  .control-button.is-playing .icon-pause {
+    display: block;
+  }
+
+  .music-volume {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .music-volume-label {
+    font-size: 0.75rem;
+    color: #9c97a3;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .music-volume-slider {
+    width: 100%;
+    accent-color: #c9c2d1;
+  }
+
+  .osu-label {
+    color: #9c97a3;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.7rem;
+  }
+  
+  #status {
+    font-size: 1.1rem;
+    color: #000000;
+    margin-top: 10px;
+    opacity: 0.9;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.9;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+
+  #overlay-toggle {
+    position:absolute;
+    display: none;
+  }
+  
+  .overlay {
+    z-index: 1;
+    background-color: rgba(255, 240, 248, 0.92);
+  }
+  
+  .overlay label {
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vw;
+    color: #7a3f66;
+    font-size: 2rem;
+  }
+  
+  .no-hover {
+    display: block;
+  }
+  
+  .fullscreen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 100vh;
+    min-width: 100vw;
+  }
+
+
+  #center {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    -moz-transform:translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);
+    -o-transform:translate(-50%,-50%)
+  }
+  
+  #overlay-toggle:checked ~ .overlay {
+    animation-fill-mode: forwards;
+    animation-name: fade, hide;
+    animation-delay: 0s, 600ms;
+    animation-duration: 600ms, 1ms;
+  }
+  
+  #overlay-toggle:checked ~ .overlay label {
+    animation-fill-mode: forwards;
+    animation-name: fade;
+    animation-delay: 0s;
+    animation-duration: 500ms;
+  }
+  
+  #canvas-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+  }
+
+  
+  @media(hover: hover) {
+    .overlayhover {
+      display: block;
+    }
+    .overlayno-hover {
+      display: none;
+    }
+  }
+  
+  @keyframes fade{
+    to {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes hide {
+    to {
+      visibility: hidden;
+    }
+  } 
+
+  
