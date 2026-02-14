@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title class="blinking-title">vivi</title>
+  <link rel="icon" href="images/2.png" type="image/png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <img class="wallpaper-media" src="images/wallpaper.gif" alt="">
+  <div class="wallpaper-overlay"></div>
+  <script>
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault(); 
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'I') {
+            event.preventDefault(); 
+        }
+    });
+
+    function audioPlay() {
+        var audio = document.getElementById("audio");
+        audio.volume = 1.0;
+        audio.currentTime = 0;
+        audio.play();
+    }
+  </script>
+  
+  <audio loop="" preload="auto" id="audio">
+    <source src="media/cretina.mp3" type="audio/mpeg">
+  </audio>
+  
+  <input type="checkbox" autocomplete="off" id="overlay-toggle">
+  <div class="overlay fullscreen">
+    <label for="overlay-toggle" onclick="audioPlay(); ">
+      <span class="overlayhover hover" style="font-family: monospace; font-size: 0.6em;">  ⤷ Clique aqui ♡ ˎˊ˗</span>
+    </label>
+  </div>
+
+  <div class="profile-container">
+    <div class="card">
+      <div class="profile-header">
+        <div class="avatar">
+          <img id="avatar1" src="images/1.png" alt="Avatar do Discord">
+        </div>
+        <div class="info">
+          <h1 id="nickname1">
+            <span id="nickname-text1">vivi</span>
+          </h1>
+          <p id="subnick1" class="subnick">@vivi</p>
+          <span class="badges">
+            <img src="images/discordnitro.svg" alt="Nitro" class="badge" id="nitro-badge1">
+            <img src="images/discordboost4.png" alt="Boost" class="badge" id="boost-badge1">
+          </span>
+        </div>
+      </div>
+      <div class="links">
+        <a class="link-button" href="https://www.roblox.com/pt/users/557510774/profile" target="_blank" aria-label="Roblox">
+          <img src="https://cdn.simpleicons.org/roblox/ffffff" alt="Roblox" class="link-icon">
+        </a>
+        <a class="link-button" href="https://www.tiktok.com/@vividovic" target="_blank" aria-label="TikTok">
+          <img src="https://cdn.simpleicons.org/tiktok/ffffff" alt="TikTok" class="link-icon">
+        </a>
+        <a class="link-button" href="https://osu.ppy.sh/users/30451639" target="_blank" aria-label="osu!">
+          <img src="https://cdn.simpleicons.org/osu/ffffff" alt="osu!" class="link-icon">
+        </a>
+      </div>
+      <div class="osu-panel">
+        <div class="osu-header">
+          <img id="osu-avatar" src="https://a.ppy.sh/30451639" alt="osu! avatar" class="osu-avatar">
+          <div class="osu-text">
+            <div id="osu-name" class="osu-name">osu!</div>
+            <div id="osu-country" class="osu-sub">carregando...</div>
+          </div>
+        </div>
+        <div class="osu-stats">
+          <div class="osu-stat">
+            <span class="osu-label">pp</span>
+            <span id="osu-pp" class="osu-value">-</span>
+          </div>
+          <div class="osu-stat">
+            <span class="osu-label">rank</span>
+            <span id="osu-rank" class="osu-value">-</span>
+          </div>
+          <div class="osu-stat">
+            <span class="osu-label">acc</span>
+            <span id="osu-acc" class="osu-value">-</span>
+          </div>
+          <div class="osu-stat">
+            <span class="osu-label">plays</span>
+            <span id="osu-plays" class="osu-value">-</span>
+          </div>
+        </div>
+      </div>
+      <div class="music-panel" data-title="mmm00nm0thz" data-artist="saraunh0ly">
+        <div class="music-top">
+          <img class="music-cover" src="images/1.png" alt="">
+          <div class="music-info">
+            <div id="music-title" class="music-title">mmm00nm0thz</div>
+            <div id="music-artist" class="music-artist">saraunh0ly</div>
+          </div>
+        </div>
+        <div class="music-progress">
+          <span id="music-current" class="music-time">0:00</span>
+          <input id="music-seek" class="music-seek" type="range" min="0" max="100" value="0">
+          <span id="music-duration" class="music-time">0:00</span>
+        </div>
+        <div class="music-controls">
+          <button id="music-back" class="control-button" type="button" aria-label="Voltar 10s">
+            <svg class="control-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 5h2v14H6z"></path>
+              <path d="M18 5v14l-10-7z"></path>
+            </svg>
+          </button>
+          <button id="music-play" class="control-button is-primary" type="button" aria-label="Play/Pausar">
+            <svg class="control-icon icon-play" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+            <svg class="control-icon icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 5h4v14H6zm8 0h4v14h-4z"></path>
+            </svg>
+          </button>
+          <button id="music-forward" class="control-button" type="button" aria-label="Avançar 10s">
+            <svg class="control-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16 5h2v14h-2z"></path>
+              <path d="M6 5v14l10-7z"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="music-volume">
+          <span class="music-volume-label">vol</span>
+          <input id="music-volume" class="music-volume-slider" type="range" min="0" max="1" step="0.01" value="1">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
